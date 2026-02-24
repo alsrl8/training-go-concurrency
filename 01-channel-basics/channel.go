@@ -26,7 +26,7 @@ func sumWithChannel(nums []int) int {
 // generateSequence는 0부터 n-1까지의 정수를 순서대로 보내는 receive-only channel을 반환한다.
 // 모든 값을 보낸 후 channel을 닫아야 한다.
 func generateSequence(n int) <-chan int {
-	c := make(chan int, n)
+	c := make(chan int)
 	go func() {
 		defer close(c)
 		for i := 0; i < n; i++ {
